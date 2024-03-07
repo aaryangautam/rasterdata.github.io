@@ -8,33 +8,29 @@ body {
   margin: 40px auto 0 auto;
 }
 </style>
-    <title>Project 1: Politician Investments</title>
+    <title>Project 3: Raster Data</title>
   <body>
-    <h1>Analyzing Politicians' Relationships in Sector Investment </h1>
-    <p>The relationship between politicians and investments is an interesting one to explore, considering that they are often in the know for legislation that is going to hit the 
-      country. Analyzing these results may provide some insight into what resources to invest in and when. <b>My hypothesis is that poiliticians have strong investments in the technology, energy, and finance sectors.</b>
+    <h1>Temperature Data and Population Density</h1>
+
+    <div id="observablehq-viewof-map-d1b5e2ff"></div>
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+    <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+    import define from "https://api.observablehq.com/d/f2a1e09ea78cbdd3@33.js?v=4&api_key=e71cac630d4124dd3d9345536f227fa4a63160ed";
+    new Runtime().module(define, name => {
+      if (name === "viewof map") return new Inspector(document.querySelector("#observablehq-viewof-map-d1b5e2ff"));
+    });
+    </script>
+    
+    <p> <b>My hypothesis is that in hotter areas, urban development tends to be in cooler pockets, while in colder areas, urban development tends to be in warmer pockets.</b> 
+    
     </p>
-    <p>  
-      The source for this comes from <a href="https://disclosures-clerk.house.gov/">Disclosure Clerk of the House of Representatives</a>. Politicians are required to disclose their investment information, and this data set contains all disclosed investment information from 2020-today. 
-      I accessed this through <a href="https://housestockwatcher.com/">House Stock Watcher</a>, a website that stores, monitors, and transcribes the information from the governmental employees in order to keep the American people informed of the government's investments.
-      Notes on data scrubbing: 
-      I removed all data with no Tickers, without an asset description, without an industry, and those not in a sector.
+    <p>The graph above depicts multiple raster plots. Temperature is depicted from light red to dark red, lighter reds indicating a cooler temperature while darker reds indicating a warmer temperature. As you zoom in on the graph, the temperature data fades slightly, allowing for viewing of the underlying raster. The population density is depicted by the blue dots. The denser the population, the more blue dots appear. </p>
+    <p>  I chose to make the background map satellite data and to plot the data on the globe, instead of a fixed map. This would allow for future growth into a worldwide data set. I also chose to visualize the cities and states on the map. It would give a good frame of reference as to where the population densities occur.
     </p>
-    <p> I first decided to look at the party distribution of disclosed investments. From there, I could infer whether I was on the right track or not. 
-    </p>
-    <div id="investmentFreq">
-    </div>
-    <p> By looking at the suprisingly higher volume of democratic investment, I believed that technology and real estate may be higher on the list than anticipated. This is because democrats usually live in urban areas, allowing for a closer interaction with more of these sectors.
-    </p>
-    <div id="sectorParty">
-    </div>
-    <p>The technology sector lived up to the expectation. Finance was also decently in the running. The energy sector was a lot lower than previously anticipated, considering that the government plays a major role in that sector. </p>
-    <h2>Monthly Sector Investment Frequency </h2>
-    <div id="heat">
-    </div>
-    <p>Finally, this analysis shows the ideal times to invest in different sectors. While there were certain sectors that vastly outperformed others, most sectors have fluctuations in volume. Typically, investing when there is a large volume of trades is a good time to invest.
-      This chart can possibly serve as a helpful metric for when to invest money in the marketplace. 
-    </p>
-    <script src="index.js"></script>
+    <p>While the two data rasters allowed for good data visualization, there was not a clear consensus on the hypothesis. Given more time, I would expand the data set to display the world's population density, with an overlay of air quality metrics. I would also like to add some radio buttons to toggle the layers on and off.
+     </p>
   </body>
 </html>
